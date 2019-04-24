@@ -14,15 +14,23 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false
   }
+  
 
-  render() {
+  togglePage = () => { 
+    this.state.showSearchPage ? 
+   (this.setState(() => ({showSearchPage : false})))  :  (this.setState(() => ({showSearchPage : true})))
+  }
+ 
+
+  render() {  
     return (
       <div className="app">
 
-      <Library/>
+     
         {this.state.showSearchPage ? (
-          <SearchBook toggle ={this.state.showSearchPage} />) : (
-          <Library toggle ={this.state.showSearchPage} />)}
+          <SearchBook toggle ={this.togglePage}/>) : 
+          (
+          <Library toggle ={this.togglePage} />)}
       </div>
     )
   }

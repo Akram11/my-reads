@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 
 class Library extends React.Component{
+
+    onToggle = this.props.toggle;
     render(){
 
-        const toggle = this.props.toggle;
+        const onToggle = this.props.toggle;
         return(
             <div className="list-books">
             <div className="list-books-title">
@@ -161,7 +163,7 @@ class Library extends React.Component{
               </div>
             </div>
             <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <button onClick={ onToggle }>Add a book</button>
             </div>
           </div>
         )
