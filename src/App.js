@@ -3,6 +3,8 @@ import React from 'react'
 import './App.css'
 import Library from './components/Library'
 import SearchBook from './components/SearchBooks'
+import {Route} from 'react-router-dom'
+import SearchBooks from './components/SearchBooks';
 
 class BooksApp extends React.Component {
   state = {
@@ -26,11 +28,15 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
 
-     
-        {this.state.showSearchPage ? (
-          <SearchBook toggle ={this.togglePage}/>) : 
-          (
-          <Library toggle ={this.togglePage} />)}
+      <Route exact path =  '/' render = {() => (
+        <Library />
+      )} />
+
+      <Route path = '/search' render = {() => (
+              <SearchBooks />
+            )} />
+      
+
       </div>
     )
   }

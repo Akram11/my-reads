@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 
 class Library extends React.Component{
 
@@ -163,7 +164,10 @@ class Library extends React.Component{
               </div>
             </div>
             <div className="open-search">
-              <button onClick={ onToggle }>Add a book</button>
+            <Link to = '/search' className="open-search">
+            <button>to search</button>
+            </Link>
+              {/*<button onClick={ onToggle }>Add a book</button>*/}
             </div>
           </div>
         )
