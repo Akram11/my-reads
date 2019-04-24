@@ -5,8 +5,6 @@ class Library extends React.Component{
 
     onToggle = this.props.toggle;
     render(){
-
-        const onToggle = this.props.toggle;
         return(
             <div className="list-books">
             <div className="list-books-title">
@@ -164,10 +162,9 @@ class Library extends React.Component{
               </div>
             </div>
             <div className="open-search">
-            <Link to = '/search' className="open-search">
+            <Link to = '/search'>
             <button>to search</button>
             </Link>
-              {/*<button onClick={ onToggle }>Add a book</button>*/}
             </div>
           </div>
         )

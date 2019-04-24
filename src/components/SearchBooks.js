@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 class SearchBooks extends React.Component{
 
     render(){
-        const onToggle =this.props.toggle;
         console.log(this.props.toggle);
         return(
             <div>
