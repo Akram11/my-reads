@@ -30,14 +30,13 @@ class BooksApp extends React.Component {
   }
 
   changeShelf = (book, newShelf) => {
-    update(book, newShelf)
+    BooksAPI.update(book, newShelf)
       .then(() => {
         book.shelf = newShelf
         this.setState(() => {
           this.state.books.forEach(e => {
             if (e.id==book.id) e.shelf = newShelf;
           });
-
           return this.state.books;
         })
       })
