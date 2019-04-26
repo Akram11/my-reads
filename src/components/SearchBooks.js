@@ -7,7 +7,7 @@ class SearchBooks extends React.Component{
   
 
     render(){
-    const  { books } = this.props;
+    const  { books, changeShelf } = this.props;
 
         return(
           <div>
@@ -16,7 +16,7 @@ class SearchBooks extends React.Component{
             <div className="search-books-results">
               <ol className="books-grid">
               {books.map((book)=>  (
-                  <Book book = {book}/>
+                  <Book book = {book}  changeShelf = {changeShelf}/>
               ))}
               </ol>
             </div>

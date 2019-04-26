@@ -6,13 +6,13 @@ class Shelves extends React.Component{
 
     render() {
 
-          const {readBooks,wantToReadBooks, CurrentlyReadingBooks} = this.props
+          const {readBooks,wantToReadBooks, changeShelf} = this.props
           
         return (
             <div className="list-books-content">
-              <Shelf content = {this.props.CurrentlyReadingBooks} title = "Currently Reading" />
-              <Shelf content = {wantToReadBooks} title = "Want to read" />
-              <Shelf content = {readBooks} title = "Read" />
+              <Shelf content = {this.props.CurrentlyReadingBooks} title = "Currently Reading"  changeShelf = {changeShelf} />
+              <Shelf content = {wantToReadBooks} title = "Want to read"  changeShelf = {changeShelf} />
+              <Shelf content = {readBooks} title = "Read"  changeShelf = {changeShelf} />
           </div>
         )
     }

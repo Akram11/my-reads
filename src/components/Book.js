@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 class Book extends React.Component{
     render(){
 
-        const {book} = this.props
+        const {book, changeShelf} = this.props
 
         return(
             <li key = {book.id}>
@@ -13,7 +13,7 @@ class Book extends React.Component{
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
                 </div>
                 <div className="book-shelf-changer">
-                  <select>
+                  <select value = {book.shelf} onChange = {function (event) {changeShelf(book, event.target.value)}}>
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
