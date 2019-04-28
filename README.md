@@ -5,13 +5,12 @@ The goal of this project is to keep track of the books you are readying by listi
 -Currently Reading
 -Want to Read
 -Read
-
-you can search for a book and add it to your own library of collections.
+you can also search for a book and add it to your own library of collections.
 
 # Usage: 
 ### Install [yarn](https://yarnpkg.com):
 
-##Start the app: 
+###Start the app: 
 ```bash
 cd my-reads
 yarn install
