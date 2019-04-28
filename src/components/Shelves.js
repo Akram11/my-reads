@@ -6,7 +6,7 @@ class Shelves extends React.Component{
 
     render() {
 
-          const {readBooks,wantToReadBooks, changeShelf} = this.props
+          const {CurrentlyReadingBooks, readBooks,wantToReadBooks, changeShelf} = this.props
           
         return (
 
