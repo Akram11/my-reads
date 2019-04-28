@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import Header from './Header'
 import Shelves from './Shelves'
 import AddButton from './AddButton';
@@ -7,6 +7,9 @@ class Library extends React.Component {
 
 
     render() {
+
+        // assign the books that are assigned to a certain shelf to variables to be passed 
+        // to shelves compononet to be rendered in the right shelf
 
         const { books, changeShelf } = this.props;
         const read = books.filter((book) => book.shelf === 'read')
@@ -17,7 +20,6 @@ class Library extends React.Component {
         return (
             <div className="list-books">
                 <Header />
-                {/* header */}
                 <Shelves readBooks={read} wantToReadBooks={WantToRead} CurrentlyReadingBooks={CurrentlyReading} changeShelf = {changeShelf} />
                 <AddButton />
             </div>
