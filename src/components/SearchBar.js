@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 class SearchBar extends React.Component {
 
     render (){
+
+     const {query, handleInputChange} = this.props
+
+
         return(
             <div className="search-books-bar">
             <Link to = '/'>
@@ -18,8 +22,7 @@ class SearchBar extends React.Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                <input type="text" placeholder="Search by title or author"/>
-
+                <input type="text" placeholder="Search by title or author" value={this.props.query} onChange = {handleInputChange} />
               </div>
             </div>
         )
