@@ -26,18 +26,23 @@ class SearchBooks extends React.Component {
 
   search = query => {
     BooksAPI.search(query)
-      .then((books) => {
-        if (books.lengh > 1) {
+      .then(books => {
+        if (books.length > 1) {
           this.setState(() => ({
             resultBooks: books
           }))
-        }else {
+        } else {
           this.setState(() => ({
             resultBooks: []
           }))
         }
+      })
+      if (query === '')
+      {
+        this.setState(() => ({
+          resultBooks: []
+        }))
       }
-      )
   }
 
 
@@ -48,9 +53,9 @@ class SearchBooks extends React.Component {
     const { query, resultBooks } = this.state;
 
 
-    //console.log(query)
+    console.log(query)
     //this.search(query)
-    //console.log(this.state.resultBooks)
+    console.log(this.state.resultBooks)
 
 
     // if there's not query entered by the user show all the books,
