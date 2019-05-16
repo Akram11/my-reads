@@ -8,7 +8,7 @@ class SearchBooks extends React.Component {
 
   state = {
     query: '',
-    resultBooks : []
+    resultBooks: []
   }
 
 
@@ -27,9 +27,15 @@ class SearchBooks extends React.Component {
   search = query => {
     BooksAPI.search(query)
       .then((books) => {
-        this.setState(() => ({
-          resultBooks: books
-        }))
+        if (books.lengh > 1) {
+          this.setState(() => ({
+            resultBooks: books
+          }))
+        }else {
+          this.setState(() => ({
+            resultBooks: []
+          }))
+        }
       }
       )
   }
@@ -38,9 +44,9 @@ class SearchBooks extends React.Component {
 
 
   render() {
-    const { books, changeShelf } = this.props;
+    const {changeShelf } = this.props;
     const { query, resultBooks } = this.state;
-    
+
 
     //console.log(query)
     //this.search(query)
