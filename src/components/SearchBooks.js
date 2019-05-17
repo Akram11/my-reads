@@ -25,6 +25,7 @@ class SearchBooks extends React.Component {
   // I think it's better than using pre-defined seach terms - hopefully it's accepted 
 
   search = query => {
+    
     BooksAPI.search(query)
       .then(books => {
         if (books.length > 1) {
@@ -37,12 +38,10 @@ class SearchBooks extends React.Component {
           }))
         }
       })
-      if (query === '')
-      {
-        this.setState(() => ({
-          resultBooks: []
-        }))
-      }
+      query === "" &&
+      this.setState(currentState => ({
+        resultBooks: []
+      }))
   }
 
 
