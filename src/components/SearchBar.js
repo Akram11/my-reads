@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
              <button className="close-search">Close</button>
              </Link>
               <div className="search-books-input-wrapper">
-                <input type="text" placeholder="Search by title or author" value={query} onChange = {(event)=>{handleInputChange(event.target.value)}} />
+                <input autoFocus type="text" placeholder="Search by title or author" value={query} onChange = {(event)=>{handleInputChange(event.target.value)}} />
               </div>
             </div>
         )
