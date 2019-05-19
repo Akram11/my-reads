@@ -1,5 +1,4 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Library from './components/Library'
 import { Route } from 'react-router-dom'
@@ -32,21 +31,6 @@ class BooksApp extends React.Component {
       )
   }
 
-  //Change a book's shelf : loop over state.books and when the id of the passed book matches,
-  // set the book shelf to the passed value
-
-  // changeShelf = (book, newShelf) => {
-  //   BooksAPI.update(book, newShelf)
-  //     .then(() => {
-  //       book.shelf = newShelf
-  //       this.setState(() => {
-  //         this.state.books.map(b => {
-  //           if (b.id === book.id) b.shelf = newShelf;
-  //         });
-  //         return this.state.books;
-  //       })
-  //     })
-  // }
 
   changeShelf = (book, newShelf) => {
     BooksAPI.update(book, newShelf)
@@ -54,10 +38,9 @@ class BooksApp extends React.Component {
         if (book.shelf === undefined) {
           book.shelf = newShelf
           this.setState({
-            ...this.state,           
+            ...this.state,
             books: this.state.books.concat(book)
           })
-          console.log('concat')
 
         } else if (newShelf === 'none') {
           this.setState({
