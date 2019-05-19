@@ -21,11 +21,8 @@ class SearchBooks extends React.Component {
     }
   }
 
-  // I'm using the method represented in the Contacts example of the course to search books by title
-  // I think it's better than using pre-defined seach terms - hopefully it's accepted 
-
   search = query => {
-    
+
     BooksAPI.search(query)
       .then(books => {
         if (books.length > 1) {
@@ -38,7 +35,7 @@ class SearchBooks extends React.Component {
           }))
         }
       })
-      query === "" &&
+    query === "" &&
       this.setState(currentState => ({
         resultBooks: []
       }))
@@ -48,25 +45,8 @@ class SearchBooks extends React.Component {
 
 
   render() {
-    const {changeShelf } = this.props;
+    const { changeShelf } = this.props;
     const { query, resultBooks } = this.state;
-
-
-    console.log(query)
-    //this.search(query)
-    console.log(this.state.resultBooks)
-
-
-    // if there's not query entered by the user show all the books,
-    // otherwise filter only the books whose title [or part of it] match the query 
-
-
-
-    // (query === '')
-    //   ? books
-    //   : books.filter((book) => (
-    //     book.title.toLowerCase().includes(query.toLowerCase())
-    //   ))
 
     return (
       <div>
@@ -84,7 +64,5 @@ class SearchBooks extends React.Component {
     )
   }
 }
-
-
 
 export default SearchBooks
