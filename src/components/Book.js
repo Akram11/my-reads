@@ -13,7 +13,7 @@ class Book extends React.Component{
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:book.imageLinks && `url(${book.imageLinks.smallThumbnail})` }}>
                 </div>
                 <div className="book-shelf-changer">
-                  <select   value = {book.shelf} onChange = { (event) => {changeShelf(book, event.target.value)}}>
+                  <select   value = {book.shelf || 'none'} onChange = { (event) => {changeShelf(book, event.target.value)}}>
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>

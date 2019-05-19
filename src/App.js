@@ -40,8 +40,8 @@ class BooksApp extends React.Component {
       .then(() => {
         book.shelf = newShelf
         this.setState(() => {
-          this.state.books.forEach(e => {
-            if (e.id === book.id) e.shelf = newShelf;
+          this.state.books.forEach(b => {
+            if (b.id === book.id) b.shelf = newShelf;
           });
           return this.state.books;
         })
@@ -52,9 +52,9 @@ class BooksApp extends React.Component {
 
   render() {
 
+    console.log(this.state.books)
     return (
       <div className="app">
-
         <Route exact path='/' render={() => (
           <Library books={this.state.books} changeShelf = {this.changeShelf}  />
         )} />
