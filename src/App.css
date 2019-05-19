@@ -7,14 +7,14 @@ body {
 }
 
 body, .app {
-  background: white;
+  background: #fff2ea;
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #db9b6d;
   text-align: center;
 }
 
