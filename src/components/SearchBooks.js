@@ -14,15 +14,19 @@ class SearchBooks extends React.Component {
 
   handleInputChange = (query) => {
     this.setState(() => ({
-      query: query.trim()
+      query: query  //.trim()
     }))
     if (query !== '') {
       this.search(query)
+    }else{
+      this.setState(() => ({
+        resultBooks: [],
+        query: ''
+      }))
     }
   }
 
   search = query => {
-
     BooksAPI.search(query)
       .then(books => {
         if (books.length > 1) {
@@ -35,10 +39,6 @@ class SearchBooks extends React.Component {
           }))
         }
       })
-    query === "" &&
-      this.setState(currentState => ({
-        resultBooks: []
-      }))
   }
 
 
@@ -47,7 +47,8 @@ class SearchBooks extends React.Component {
   render() {
     const { changeShelf } = this.props;
     const { query, resultBooks } = this.state;
-
+    console.log(query)
+    console.log(resultBooks)
     return (
       <div>
         <div className="search-books">
