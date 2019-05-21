@@ -8,7 +8,8 @@ class SearchBooks extends React.Component {
 
   state = {
     query: '',
-    resultBooks: []
+    resultBooks: [],
+    lineShow: false
   }
 
 
@@ -21,27 +22,32 @@ class SearchBooks extends React.Component {
     } else {
       this.setState(() => ({
         resultBooks: [],
-        //   query: ''
+        lineShow: false,
+        query: ''
       }))
     }
-
 
   }
 
   search = query => {
     const libraryBooks = this.props.books
-    //console.log(this.props.books)
-    console.log(libraryBooks)
 
     BooksAPI.search(query)
       .then(books => {
-        if (books.length > 1) {
+        if (books.length > 1 && this.state.query === query) {
           this.setState(() => ({
-            ...this.state,
-            resultBooks: books
+            lineShow: false,
+            resultBooks: books.map(b => {
+              libraryBooks.forEach(elm => 
+                (elm.id === b.id)&&(b.shelf = elm.shelf)
+              );
+              return b
+            })
+            
           }))
         } else {
           this.setState(() => ({
+            lineShow: true,
             resultBooks: []
           }))
         }
@@ -49,14 +55,10 @@ class SearchBooks extends React.Component {
   }
 
 
-
-
   render() {
     const { changeShelf } = this.props;
     const { query, resultBooks } = this.state;
-    console.log(query)
-    console.log(resultBooks)
-    const line = (this.state.resultBooks.length === 0 && query !== '') ? 'Books not found' : ''
+    const line = (this.state.lineShow && this.state.resultBooks.length === 0 && query !== '') ? 'no results' : ''
 
 
     return (

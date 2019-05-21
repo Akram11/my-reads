@@ -20,7 +20,7 @@ class Library extends React.Component {
         return (
             <div className="list-books">
                 <Header />
-                <Shelves readBooks={read} wantToReadBooks={WantToRead} CurrentlyReadingBooks={CurrentlyReading} changeShelf = {changeShelf} />
+                <Shelves books={this.props.books} readBooks={read} wantToReadBooks={WantToRead} CurrentlyReadingBooks={CurrentlyReading} changeShelf = {changeShelf} />
                 <AddButton />
             </div>
         )
