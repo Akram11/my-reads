@@ -6,14 +6,14 @@ class Shelves extends React.Component {
 
   render() {
 
-    const { CurrentlyReadingBooks, readBooks, wantToReadBooks, changeShelf } = this.props
+    const {changeShelf, books } = this.props
 
     return (
       // create a shelf instance for each group of books passed from the props [currently reading, want to read, read]
       <div className="list-books-content">
-        <Shelf content={this.props.books.filter(book => book.shelf === 'currentlyReading')} title="Currently Reading" changeShelf={changeShelf} />
-        <Shelf content={wantToReadBooks} title="Want to read" changeShelf={changeShelf} />
-        <Shelf content={readBooks} title="Read" changeShelf={changeShelf} />
+        <Shelf content={books.filter(book => book.shelf === 'currentlyReading')} title="Currently Reading" changeShelf={changeShelf} />
+        <Shelf content={books.filter(book => book.shelf === 'wantToRead')} title="Want to read" changeShelf={changeShelf} />
+        <Shelf content={books.filter(book => book.shelf === 'read')} title="Read" changeShelf={changeShelf} />
       </div>
     )
   }
