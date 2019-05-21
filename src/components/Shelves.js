@@ -19,9 +19,6 @@ class Shelves extends React.Component {
         {Object.keys(shelves).map((shelf) => (
           <Shelf key= {shelf} content={books.filter(book => book.shelf === shelves[shelf][1])} title={shelves[shelf][0]} changeShelf={changeShelf} />
         ))}
-        {/* <Shelf content={books.filter(book => book.shelf === 'currentlyReading')} title="Currently Reading" changeShelf={changeShelf} />
-        <Shelf content={books.filter(book => book.shelf === 'wantToRead')} title="Want to read" changeShelf={changeShelf} />
-        <Shelf content={books.filter(book => book.shelf === 'read')} title="Read" changeShelf={changeShelf} /> */}
       </div>
     )
   }

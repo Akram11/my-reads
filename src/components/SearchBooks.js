@@ -15,7 +15,7 @@ class SearchBooks extends React.Component {
 
   handleInputChange = (query) => {
     this.setState(() => ({
-      query: query  //.trim()
+      query: query
     }))
     if (query !== '') {
       this.search(query)
@@ -31,19 +31,17 @@ class SearchBooks extends React.Component {
 
   search = query => {
     const libraryBooks = this.props.books
-
     BooksAPI.search(query)
       .then(books => {
         if (books.length > 1 && this.state.query === query) {
           this.setState(() => ({
             lineShow: false,
             resultBooks: books.map(b => {
-              libraryBooks.forEach(elm => 
-                (elm.id === b.id)&&(b.shelf = elm.shelf)
+              libraryBooks.forEach(elm =>
+                (elm.id === b.id) && (b.shelf = elm.shelf)
               );
               return b
             })
-            
           }))
         } else {
           this.setState(() => ({
